@@ -1,19 +1,17 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Card from './components/Card/Card';
-import Title from './components/Title/Title';
 import Stuff from './pages/Stuff/Stuff';
 
 function App(): JSX.Element {
   return (
     <BrowserRouter>
-      <Title>Überschrift</Title>
+      <h1>Überschrift</h1>
       <Card
         title={'Title'}
         description={
           'lorem ipsum und so lalalalala lorem lorem Bum Bum lorem ipsum und so lalalalala lorem lorem Bum Bum'
         }
-        showDetail={false}
         TagEntry={['Brunhilde', 'Tilda', 'Wolfgang', 'Lessie']}
       />
       <Routes>

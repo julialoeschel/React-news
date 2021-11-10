@@ -5,33 +5,19 @@ import styled from 'styled-components';
 type CardProps = {
   title: string;
   description: string;
-  showDetail?: boolean;
-  TagEntry?: string[]; // evt gibt es das array nicht, daher ein ?
+  TagEntry?: string[];
 };
 
-function Card({
-  title,
-  description,
-  showDetail = false,
-  TagEntry,
-}: CardProps): JSX.Element {
+function Card({ title, description, TagEntry }: CardProps): JSX.Element {
   return (
     <CardStyle>
       <h2>{title}</h2>
       <span>{description}</span>
-      {showDetail ? (
-        <TagConteinerStyle showDetail={showDetail}>
-          {TagEntry?.map(
-            (
-              entry //das ? macht, dass es bei falsy nicht weiter macht -> optional training
-            ) => (
-              <Tag children={entry} />
-            )
-          )}
-        </TagConteinerStyle>
-      ) : (
-        ''
-      )}
+      <TagConteinerStyle>
+        {TagEntry?.map((entry) => (
+          <Tag children={entry} />
+        ))}
+      </TagConteinerStyle>
     </CardStyle>
   );
 }
