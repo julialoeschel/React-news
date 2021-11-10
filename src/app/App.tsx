@@ -1,25 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Card from './components/Card/Card';
+import Dashboard from './pages/Dashboard/Dashboard';
 import Stuff from './pages/Stuff/Stuff';
 
 function App(): JSX.Element {
   return (
     <BrowserRouter>
-      <h1>Überschrift</h1>
-      <Card
-        title={'Title'}
-        description={
-          'lorem ipsum und so lalalalala lorem lorem Bum Bum lorem ipsum und so lalalalala lorem lorem Bum Bum'
-        }
-        TagEntry={['Brunhilde', 'Tilda', 'Wolfgang', 'Lessie']}
-      />
       <Routes>
-        <Route path="/" element={<p>Main</p>} />
-        <Route path="/about" element={<p>About</p>} />
-        <Route path="/motivation" element={<p>Motivation</p>} />
-
-        <Route path="/stuff">
+        <Route path="/" element={<Dashboard />} />
+        <Route path="stuff">
           <Route path=":userId" element={<Stuff />} />
         </Route>
       </Routes>
