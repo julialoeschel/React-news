@@ -8,15 +8,16 @@ export default {
 
 export const regularCard = (): JSX.Element => (
   <Card
-    title="Title"
+    name="Title"
     description="lorem ipsum und so lalalalala lorem lorem Bum Bum lorem ipsum und so lalalalala lorem lorem Bum Bum"
+    categories={[]}
   />
 );
 
 export const detailCard = (): JSX.Element => (
   <Card
-    title="Title"
+    name="Title"
     description="lorem ipsum und so lalalalala lorem lorem Bum Bum lorem ipsum und so lalalalala lorem lorem Bum Bum "
-    TagEntry={['tanzen', 'singen', 'fröhlich sein']}
+    categories={['tanzen', 'singen', 'fröhlich sein']}
   />
 );
