@@ -13,7 +13,7 @@ function App(): JSX.Element {
         description={
           'lorem ipsum und so lalalalala lorem lorem Bum Bum lorem ipsum und so lalalalala lorem lorem Bum Bum'
         }
-        showDetail={true}
+        showDetail={false}
         TagEntry={['Brunhilde', 'Tilda', 'Wolfgang', 'Lessie']}
       />
       <Routes>
