@@ -31,6 +31,7 @@ const CardStyle = styled.div<Partial<CardProps>>`
   border: 2px solid #1e6e5d;
   padding: 0 5px 15px 5px;
   color: #1e6e5d;
+  margin-bottom: 10px;
 `;
 
 const TagConteinerStyle = styled.div<Partial<CardProps>>`

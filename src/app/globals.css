@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   display: grid;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 code {
