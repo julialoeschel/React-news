@@ -1,6 +1,7 @@
 import React from 'react';
 import Tag from '../Tag/Tag';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 type DetailsCardProps = {
   name: string;
@@ -18,7 +19,9 @@ function DetailsCard({
       <h2>{name}</h2>
       <span>{description}</span>
       <br />
-      <ButtonStyled>back</ButtonStyled>
+      <Link to={'/'}>
+        <ButtonStyled>back</ButtonStyled>
+      </Link>
       <TagConteinerStyle>
         {categories?.map((category) => (
           <Tag key={category}>{category}</Tag>
