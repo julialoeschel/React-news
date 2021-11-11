@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import DetailsCard from '../../components/DetailsCard/DetailsCard';
+import useFetch from '../../hooks/useFetch';
 import type { Thing } from '../../types';
 
 export default function Stuff(): JSX.Element {
   const { userId } = useParams();
-  const [Thing, setThing] = useState<Thing | null>(null);
 
-  useEffect(() => {
-    async function fetchThing() {
-      const response = await fetch(
-        `https://json-server.neuefische.de/stuff/${userId}`
-      );
-      const fetchedThing = await response.json();
-      fetchedThing.name
-        ? setThing(fetchedThing)
-        : console.error('Error - userId dies not exist');
-    }
-    fetchThing();
-  }, []);
+  const Thing = useFetch<Thing>(
+    `https://json-server.neuefische.de/stuff/${userId}`
+  );
 
   return (
     <>
