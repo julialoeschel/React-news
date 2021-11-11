@@ -24,7 +24,6 @@ export default function Dashboard(): JSX.Element {
             key={thing.id}
             name={thing.name}
             description={thing.description}
-            categories={thing.categories}
           />
         ))}
     </main>
