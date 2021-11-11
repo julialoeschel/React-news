@@ -1,7 +1,7 @@
 import React from 'react';
 import Tag from '../Tag/Tag';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
 type DetailsCardProps = {
   name: string;
@@ -14,18 +14,14 @@ function DetailsCard({
   description,
   categories,
 }: DetailsCardProps): JSX.Element {
-  const navigate = useNavigate();
-
-  function handleClick() {
-    navigate(-1);
-  }
-
   return (
     <CardStyle>
       <h2>{name}</h2>
       <span>{description}</span>
       <br />
-      <ButtonStyled onClick={handleClick}>back</ButtonStyled>
+      <Link to={'/'}>
+        <ButtonStyled>back</ButtonStyled>
+      </Link>
       <TagConteinerStyle>
         {categories?.map((category) => (
           <Tag key={category}>{category}</Tag>
