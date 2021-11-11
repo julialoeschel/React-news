@@ -10,14 +10,5 @@ export const regularCard = (): JSX.Element => (
   <Card
     name="Title"
     description="lorem ipsum und so lalalalala lorem lorem Bum Bum lorem ipsum und so lalalalala lorem lorem Bum Bum"
-    categories={[]}
-  />
-);
-
-export const detailCard = (): JSX.Element => (
-  <Card
-    name="Title"
-    description="lorem ipsum und so lalalalala lorem lorem Bum Bum lorem ipsum und so lalalalala lorem lorem Bum Bum "
-    categories={['tanzen', 'singen', 'fröhlich sein']}
   />
 );
