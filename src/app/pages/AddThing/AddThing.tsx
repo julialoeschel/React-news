@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 export default function AddThing(): JSX.Element {
+  const [, /*_Name*/ setName] = useState('');
+  const [, /*_Description*/ setDescription] = useState('');
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
   }
@@ -10,12 +13,15 @@ export default function AddThing(): JSX.Element {
     <StyleForm action="submit" onSubmit={(event) => handleSubmit(event)}>
       <StyledLabel>
         Name <br />
-        <input type="text" />
+        <input type="text" onChange={(event) => setName(event.target.value)} />
       </StyledLabel>
       <label>
         Description
         <br />
-        <input type="text" />
+        <input
+          type="text"
+          onChange={(event) => setDescription(event.target.value)}
+        />
       </label>
       <button type="submit">Submett Thing</button>
     </StyleForm>
