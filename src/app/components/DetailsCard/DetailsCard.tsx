@@ -1,7 +1,7 @@
 import React from 'react';
 import Tag from '../Tag/Tag';
 import styled from 'styled-components';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 type DetailsCardProps = {
   name: string;
@@ -14,12 +14,13 @@ function DetailsCard({
   description,
   categories,
 }: DetailsCardProps): JSX.Element {
+  const navigate = useNavigate();
+  const { userId } = useParams();
   async function deleteThing() {
-    console.log('delete');
-    const { userId } = useParams();
     await fetch(`https://json-server.neuefische.de/stuff/${userId}`, {
       method: 'DELETE',
-    }).then(() => console.log(`Delete successful ${userId}`));
+    });
+    navigate('/');
   }
 
   return (
