@@ -13,7 +13,6 @@ export default function Stuff(): JSX.Element {
 
   return (
     <>
-      <p>Hallo, you are loged in as {userId}</p>
       {Thing ? (
         <DetailsCard
           name={Thing.name}

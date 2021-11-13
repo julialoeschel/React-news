@@ -1,7 +1,7 @@
 import React from 'react';
 import Tag from '../Tag/Tag';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 type DetailsCardProps = {
   name: string;
@@ -14,6 +14,14 @@ function DetailsCard({
   description,
   categories,
 }: DetailsCardProps): JSX.Element {
+  async function deleteThing() {
+    console.log('delete');
+    const { userId } = useParams();
+    await fetch(`https://json-server.neuefische.de/stuff/${userId}`, {
+      method: 'DELETE',
+    }).then(() => console.log(`Delete successful ${userId}`));
+  }
+
   return (
     <CardStyle>
       <h2>{name}</h2>
@@ -23,7 +31,7 @@ function DetailsCard({
         <ButtonStyled>back</ButtonStyled>
       </Link>
       <br />
-      <ButtonDeleteStyled>Delete</ButtonDeleteStyled>
+      <ButtonDeleteStyled onClick={deleteThing}>Delete</ButtonDeleteStyled>
       <TagConteinerStyle>
         {categories?.map((category) => (
           <Tag key={category}>{category}</Tag>
