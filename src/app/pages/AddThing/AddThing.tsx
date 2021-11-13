@@ -29,7 +29,7 @@ export default function AddThing(): JSX.Element {
           onChange={(event) => setDescription(event.target.value)}
         />
       </label>
-      <button type="submit">Submett Thing</button>
+      <input type="submit"></input>
     </StyleForm>
   );
 }
