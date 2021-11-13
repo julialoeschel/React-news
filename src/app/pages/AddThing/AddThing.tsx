@@ -12,7 +12,6 @@ export default function AddThing(): JSX.Element {
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ name, description }),
     });
-    console.log(name, description);
   }
 
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import Tag from '../Tag/Tag';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 type DetailsCardProps = {
   name: string;
@@ -14,6 +14,15 @@ function DetailsCard({
   description,
   categories,
 }: DetailsCardProps): JSX.Element {
+  const navigate = useNavigate();
+  const { userId } = useParams();
+  async function deleteThing() {
+    await fetch(`https://json-server.neuefische.de/stuff/${userId}`, {
+      method: 'DELETE',
+    });
+    navigate('/');
+  }
+
   return (
     <CardStyle>
       <h2>{name}</h2>
@@ -22,6 +31,8 @@ function DetailsCard({
       <Link to={'/'}>
         <ButtonStyled>back</ButtonStyled>
       </Link>
+      <br />
+      <ButtonDeleteStyled onClick={deleteThing}>Delete</ButtonDeleteStyled>
       <TagConteinerStyle>
         {categories?.map((category) => (
           <Tag key={category}>{category}</Tag>
@@ -51,10 +62,23 @@ const CardStyle = styled.div<Partial<DetailsCardProps>>`
   color: #e6d6d0;
   margin-bottom: 10px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  position: relative;
 `;
 
 const TagConteinerStyle = styled.div<Partial<DetailsCardProps>>`
   margin-top: 25px;
   display: flex;
   flex-wrap: wrap;
+`;
+
+const ButtonDeleteStyled = styled.button`
+  background-color: #735a63;
+  border-radius: 0.4em;
+  border: solid 2px #59464d;
+  padding: 3px 10px;
+  color: #e6d6d0;
+  margin-top: 10px;
+  position: absolute;
+  right: 15px;
+  top: 5px;
 `;
