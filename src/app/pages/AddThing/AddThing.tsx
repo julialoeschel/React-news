@@ -5,6 +5,7 @@ import styled from 'styled-components';
 export default function AddThing(): JSX.Element {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+  const [categories, setCategories] = useState('');
   const navigate = useNavigate();
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -15,6 +16,8 @@ export default function AddThing(): JSX.Element {
       body: JSON.stringify({ name, description }),
     });
     navigate('/');
+    //an Mich: categories in ['', '',] verwandeln
+    console.log(categories);
   }
 
   return (
@@ -31,6 +34,16 @@ export default function AddThing(): JSX.Element {
           onChange={(event) => setDescription(event.target.value)}
         />
       </label>
+      <label>
+        Categories
+        <StyledSpan>, seperate by comma</StyledSpan>
+        <br />
+        <input
+          type="text"
+          onChange={(event) => setCategories(event.target.value)}
+        />
+      </label>
+
       <input type="submit"></input>
     </StyleForm>
   );
@@ -47,4 +60,8 @@ const StyleForm = styled.form`
 
 const StyledLabel = styled.label`
   display: block;
+`;
+
+const StyledSpan = styled.span`
+  font-size: 10px;
 `;
