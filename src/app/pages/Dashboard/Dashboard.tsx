@@ -11,11 +11,14 @@ export default function Dashboard(): JSX.Element {
   return (
     <main>
       <HStyle>Dashboard</HStyle>
+      <StyledLink to={'/add'}>Add</StyledLink>
       {things &&
         things.map((thing) => (
-          <StyledLink to={`/stuff/${thing.id}`} key={thing.id}>
-            <Card name={thing.name} description={thing.description} />
-          </StyledLink>
+          <>
+            <StyledLink to={`/stuff/${thing.id}`} key={thing.id}>
+              <Card name={thing.name} description={thing.description} />
+            </StyledLink>
+          </>
         ))}
     </main>
   );
