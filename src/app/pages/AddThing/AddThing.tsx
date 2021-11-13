@@ -2,11 +2,17 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 export default function AddThing(): JSX.Element {
-  const [, /*_Name*/ setName] = useState('');
-  const [, /*_Description*/ setDescription] = useState('');
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    await fetch('https://json-server.neuefische.de/stuff', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ name, description }),
+    });
+    console.log(name, description);
   }
 
   return (
